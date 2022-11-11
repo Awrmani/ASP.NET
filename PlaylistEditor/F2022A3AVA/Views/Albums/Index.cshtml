@@ -1,0 +1,25 @@
+﻿@model IEnumerable<F2022A3AVA.Models.AlbumBaseViewModel>
+
+@{
+    ViewBag.Title = "Albums";
+}
+
+<h2>Albums</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Title)
+        </td>
+    </tr>
+}
+
+</table>

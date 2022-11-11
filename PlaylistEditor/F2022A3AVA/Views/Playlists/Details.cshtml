@@ -1,0 +1,50 @@
+﻿@model F2022A3AVA.Models.PlaylistWithDetailViewModel
+
+@{
+    ViewBag.Title = "Playlist Details";
+}
+
+<h2>Playlist Details  <span class="p-3 mb-2 bg-info text-dark">&nbsp;@Html.DisplayFor(model => model.Name)&nbsp;</span></h2>
+
+<div>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PlaylistId }) |
+    @Html.ActionLink("Back to List", "Index")
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <br />
+        <dt>
+            @Html.DisplayNameFor(model => model.Tracks)
+        </dt>
+
+        <dd>
+            <span class="badge badge-pill badge-secondary">@Html.DisplayFor(model => model.TracksCount)</span>
+        </dd>
+
+        <dd>
+            @if (Model.Tracks.Count() > 0)
+            {
+                foreach (var item in Model.Tracks)
+                {
+                    <span>@item.Name</span><br />
+                }
+            }
+            else
+            {
+                <span>(none)</span>
+            }
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PlaylistId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
